@@ -7,33 +7,23 @@ module.exports = function(environment) {
     rootURL: '/',
     locationType: 'none',
     EmberENV: {
-      FEATURES: {
-        // Here you can enable experimental features on an ember canary build
-        // e.g. 'with-controller': true
-      },
+      FEATURES: {},
       EXTEND_PROTOTYPES: {
-        // Prevent Ember Data from overriding Date.parse.
         Date: false
       }
     },
 
     APP: {
-      // Here you can pass flags/options to your application instance
-      // when it is created
+      // These environment variables are overridden by the consuming plugin 
       rootElement: '#ember-signup',
       host: 'http://localhost:8080/_plugins/ucrm-client-signup/public.php',
       completionText: 'completiontextinformation',
-      pluginAppKey: 'null',
+      frontendKey: 'development_key',
+      isLead: 'yes',
     }
   };
 
-  if (environment === 'development') {
-    // ENV.APP.LOG_RESOLVER = true;
-    // ENV.APP.LOG_ACTIVE_GENERATION = true;
-    // ENV.APP.LOG_TRANSITIONS = true;
-    // ENV.APP.LOG_TRANSITIONS_INTERNAL = true;
-    // ENV.APP.LOG_VIEW_LOOKUPS = true;
-  }
+  if (environment === 'development') {}
 
   if (environment === 'test') {
     // Testem prefers this...
@@ -47,9 +37,7 @@ module.exports = function(environment) {
     ENV.APP.autoboot = false;
   }
 
-  if (environment === 'production') {
-    // here you can enable a production-specific feature
-  }
+  if (environment === 'production') {}
 
   return ENV;
 };
